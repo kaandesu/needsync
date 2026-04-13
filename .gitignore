@@ -1,0 +1,45 @@
+# Binaries
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+needsync
+needsync-api
+
+# Go build cache
+*.out
+*.test
+*.prof
+
+# Go modules
+vendor/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Gitea / runtime artifacts (if any local state)
+.needsync/
+coordination/
+
+# Coverage
+coverage.out
