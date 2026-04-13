@@ -1,0 +1,35 @@
+project_name: needsync
+
+builds:
+  - id: cli
+    main: ./cmd/cli
+    binary: needsync
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+  - id: api
+    main: ./cmd/api
+    binary: needsync-api
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - id: default
+    builds:
+      - cli
+      - api
+    format: tar.gz
+
+checksum:
+  name_template: "checksums.txt"
+
+release:
+  draft: true
