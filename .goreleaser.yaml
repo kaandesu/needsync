@@ -10,6 +10,10 @@ builds:
     goarch:
       - amd64
       - arm64
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w -X main.version={{.Version}}
 
   - id: api
     main: ./cmd/api
@@ -17,9 +21,14 @@ builds:
     goos:
       - linux
       - darwin
+      - windows
     goarch:
       - amd64
       - arm64
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w -X main.version={{.Version}}
 
 archives:
   - id: default
@@ -27,9 +36,17 @@ archives:
       - cli
       - api
     format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
 
 checksum:
   name_template: "checksums.txt"
 
 release:
-  draft: true
+  draft: false
+  make_latest: true
+  github:
+    owner: kaanyilmaz
+    name: needsync
