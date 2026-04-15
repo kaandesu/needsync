@@ -13,8 +13,11 @@ func SyncCreate(dir string) error {
 	if err != nil {
 		return err
 	}
+	fmt.Printf("nice %+v\n", needs)
 
 	for _, n := range needs {
+
+		fmt.Println(n)
 
 		// skip if already linked
 		if n.Issue != nil && n.Issue.Number != 0 {
@@ -22,11 +25,13 @@ func SyncCreate(dir string) error {
 		}
 
 		body := buildIssueBody(n)
+		fmt.Printf("> %+v\n", body)
 
 		issue, err := client.CreateIssue(n.Title, body)
 		if err != nil {
 			return err
 		}
+		fmt.Printf(">issue no: %d\n", issue.Number)
 
 		n.Issue = &IssueRef{
 			Repo:   client.Owner + "/" + client.Repo,
