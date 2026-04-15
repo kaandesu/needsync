@@ -1,0 +1,33 @@
+{
+  "id": "database_setup",
+  "title": "Provide database connection",
+  "priority": "high",
+  "status": "waiting_human",
+  "blocking": true,
+  "description": "The application needs a database connection string.",
+  "human_actions": [
+    {
+      "id": "db_type",
+      "type": "decision",
+      "title": "Choose database",
+      "options": [
+        "PostgreSQL",
+        "SQLite"
+      ],
+      "answer": null
+    },
+    {
+      "id": "db_url",
+      "type": "input",
+      "title": "Provide database URL",
+      "fields": [
+        "DATABASE_URL"
+      ],
+      "answer": null
+    }
+  ],
+  "issue": {
+    "repo": "kampai/test-repo",
+    "number": 1
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "email_sending",
+  "title": "Provide SMTP credentials",
+  "priority": "high",
+  "status": "waiting_human",
+  "blocking": true,
+  "description": "Email sending requires SMTP credentials.",
+  "human_actions": [
+    {
+      "id": "provider",
+      "type": "decision",
+      "title": "Choose email provider",
+      "options": [
+        "Gmail",
+        "Resend"
+      ],
+      "answer": null
+    },
+    {
+      "id": "smtp",
+      "type": "input",
+      "title": "Provide SMTP credentials",
+      "fields": [
+        "SMTP_HOST",
+        "SMTP_PORT",
+        "SMTP_USER",
+        "SMTP_PASSWORD"
+      ],
+      "answer": null
+    }
+  ],
+  "issue": {
+    "repo": "kampai/test-repo",
+    "number": 2
+  }
+}
